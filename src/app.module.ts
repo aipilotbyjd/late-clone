@@ -14,7 +14,7 @@ import { APP_INTERCEPTOR, APP_FILTER } from '@nestjs/core';
 
 // Core
 import { EngineModule } from './core/engine/engine.module';
-import { RegistryModule } from './core/registry/node.registry';
+import { RegistryModule } from './core/registry/registry.module';
 import { PluginsModule } from './core/plugins/plugins.module';
 import { SchedulerModule } from './core/scheduler/scheduler.module';
 import { WebhooksModule } from './core/webhooks/webhooks.module';
