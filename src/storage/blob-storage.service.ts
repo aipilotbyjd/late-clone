@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
     S3Client,
+    S3ClientConfig,
     PutObjectCommand,
     GetObjectCommand,
     DeleteObjectCommand,
@@ -15,14 +16,22 @@ export class BlobStorageService {
     private readonly bucket: string;
 
     constructor(private readonly config: ConfigService) {
-        this.bucket = this.config.get<string>('S3_BUCKET_NAME');
-        this.client = new S3Client({
-            region: this.config.get<string>('S3_REGION'),
+        const bucket = this.config.get<string>('S3_BUCKET_NAME')!;
+        const region = this.config.get<string>('S3_REGION')!;
+        const accessKeyId = this.config.get<string>('S3_ACCESS_KEY')!;
+        const secretAccessKey = this.config.get<string>('S3_SECRET_KEY')!;
+
+        this.bucket = bucket;
+
+        const s3Config: S3ClientConfig = {
+            region,
             credentials: {
-                accessKeyId: this.config.get<string>('S3_ACCESS_KEY'),
-                secretAccessKey: this.config.get<string>('S3_SECRET_KEY'),
+                accessKeyId,
+                secretAccessKey,
             },
-        });
+        };
+
+        this.client = new S3Client(s3Config);
     }
 
     /** Upload a buffer or stream to S3 */
