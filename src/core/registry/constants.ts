@@ -1,0 +1,1 @@
+export const NODE_REGISTRY = 'NODE_REGISTRY';
