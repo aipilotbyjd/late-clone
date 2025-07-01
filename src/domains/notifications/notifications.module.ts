@@ -6,8 +6,8 @@ import { WebhookService } from './webhook.service';
 import { NotificationHook } from './notification-hook.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([NotificationHook])],
-    providers: [HookService, EmailService, WebhookService],
-    exports: [HookService],
+  imports: [TypeOrmModule.forFeature([NotificationHook])],
+  providers: [HookService, EmailService, WebhookService],
+  exports: [HookService],
 })
-export class NotificationsModule { }
+export class NotificationsModule {}

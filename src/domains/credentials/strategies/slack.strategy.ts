@@ -23,7 +23,7 @@ export class SlackOAuthStrategy implements OAuthStrategy {
         client_secret: this.clientSecret,
         redirect_uri: this.redirectUri,
       }),
-      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
     );
 
     if (!response.data.ok) throw new Error('Slack OAuth failed');

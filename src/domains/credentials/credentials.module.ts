@@ -9,15 +9,15 @@ import { GitHubOAuthStrategy } from './strategies/github.strategy';
 import { RefreshService } from './refresh.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([CredentialEntity])],
-    providers: [
-        CredentialsService,
-        GoogleOAuthStrategy,
-        SlackOAuthStrategy,
-        GitHubOAuthStrategy,
-        RefreshService,
-    ],
-    controllers: [OAuthController],
-    exports: [CredentialsService],
+  imports: [TypeOrmModule.forFeature([CredentialEntity])],
+  providers: [
+    CredentialsService,
+    GoogleOAuthStrategy,
+    SlackOAuthStrategy,
+    GitHubOAuthStrategy,
+    RefreshService,
+  ],
+  controllers: [OAuthController],
+  exports: [CredentialsService],
 })
-export class CredentialsModule { }
+export class CredentialsModule {}

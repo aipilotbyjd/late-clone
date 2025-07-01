@@ -7,14 +7,17 @@ export class NodeExecutor {
   constructor(
     @Inject(NODE_REGISTRY)
     private readonly registry: Map<string, RegisteredNode>,
-  ) { }
+  ) {}
 
   /**
    * Execute a single node instance.
    * @param node   Persisted node config, e.g. { type, params }
    * @param inputs Array of upstream node outputs
    */
-  async execute(node: { type: string; params: any }, inputs: any[]): Promise<any> {
+  async execute(
+    node: { type: string; params: any },
+    inputs: any[],
+  ): Promise<any> {
     const instance = this.registry.get(node.type);
     if (!instance) {
       throw new Error(`Node type "${node.type}" not registered`);
@@ -24,7 +27,9 @@ export class NodeExecutor {
     if (instance.actions && typeof node.params.action === 'string') {
       const action = instance.actions[node.params.action];
       if (!action) {
-        throw new Error(`Action "${node.params.action}" not found on node "${node.type}"`);
+        throw new Error(
+          `Action "${node.params.action}" not found on node "${node.type}"`,
+        );
       }
       return action.run({
         params: node.params,

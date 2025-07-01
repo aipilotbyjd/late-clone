@@ -3,11 +3,11 @@ import { ScheduleModule as NestScheduleModule } from '@nestjs/schedule';
 import { TriggerJobsService } from './trigger.jobs';
 
 @Module({
-    imports: [
-        // Enables @Cron, @Interval, etc.
-        NestScheduleModule.forRoot(),
-    ],
-    providers: [TriggerJobsService],
-    exports: [TriggerJobsService],
+  imports: [
+    // Enables @Cron, @Interval, etc.
+    NestScheduleModule.forRoot(),
+  ],
+  providers: [TriggerJobsService],
+  exports: [TriggerJobsService],
 })
-export class SchedulerModule { }
+export class SchedulerModule {}

@@ -14,29 +14,32 @@ import { RegisteredNode } from '../../interfaces/node.interface';
 
 @Global()
 @Module({
-    providers: [
-        {
-            provide: NODE_REGISTRY,
-            useValue: new Map<string, RegisteredNode>(),
-        },
-        NodeRegistryService,
-    ],
-    exports: [NodeRegistryService, NODE_REGISTRY],
+  providers: [
+    {
+      provide: NODE_REGISTRY,
+      useValue: new Map<string, RegisteredNode>(),
+    },
+    NodeRegistryService,
+  ],
+  exports: [NodeRegistryService, NODE_REGISTRY],
 })
 export class RegistryModule implements OnModuleInit {
-    constructor(private readonly registryService: NodeRegistryService) { }
+  constructor(private readonly registryService: NodeRegistryService) {}
 
-    onModuleInit(): void {
-        // Register built-in nodes
-        this.registryService.register('slack', new SlackNode());
-        this.registryService.register('slack.trigger', new SlackTrigger());
+  onModuleInit(): void {
+    // Register built-in nodes
+    this.registryService.register('slack', new SlackNode());
+    this.registryService.register('slack.trigger', new SlackTrigger());
 
-        this.registryService.register('github', new GitHubNode());
-        this.registryService.register('github.trigger', new GitHubTrigger());
+    this.registryService.register('github', new GitHubNode());
+    this.registryService.register('github.trigger', new GitHubTrigger());
 
-        this.registryService.register('http', new HttpNode());
+    this.registryService.register('http', new HttpNode());
 
-        this.registryService.register('google-sheets', new GoogleSheetsNode());
-        this.registryService.register('google-sheets.trigger', new GoogleSheetsTrigger());
-    }
+    this.registryService.register('google-sheets', new GoogleSheetsNode());
+    this.registryService.register(
+      'google-sheets.trigger',
+      new GoogleSheetsTrigger(),
+    );
+  }
 }

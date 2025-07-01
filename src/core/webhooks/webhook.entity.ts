@@ -1,28 +1,28 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    CreateDateColumn,
-    UpdateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('webhooks')
 export class WebhookEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column({ unique: true })
-    path: string; // e.g., '/webhooks/abc123'
+  @Column({ unique: true })
+  path: string; // e.g., '/webhooks/abc123'
 
-    @Column()
-    workflowId: string; // the workflow to trigger
+  @Column()
+  workflowId: string; // the workflow to trigger
 
-    @Column('jsonb', { nullable: true })
-    config: any; // optional filtering config
+  @Column('jsonb', { nullable: true })
+  config: any; // optional filtering config
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

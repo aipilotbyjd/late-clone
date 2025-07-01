@@ -5,20 +5,20 @@ import { MarketplaceEntity } from './marketplace.entity';
 
 @Injectable()
 export class MarketplaceService {
-    constructor(
-        @InjectRepository(MarketplaceEntity)
-        private readonly repo: Repository<MarketplaceEntity>,
-    ) { }
+  constructor(
+    @InjectRepository(MarketplaceEntity)
+    private readonly repo: Repository<MarketplaceEntity>,
+  ) {}
 
-    findAll(options?: FindManyOptions<MarketplaceEntity>) {
-        return this.repo.find(options);
-    }
+  findAll(options?: FindManyOptions<MarketplaceEntity>) {
+    return this.repo.find(options);
+  }
 
-    findOne(id: string) {
-        return this.repo.findOne({ where: { id } });
-    }
+  findOne(id: string) {
+    return this.repo.findOne({ where: { id } });
+  }
 
-    save(plugin: MarketplaceEntity) {
-        return this.repo.save(plugin);
-    }
+  save(plugin: MarketplaceEntity) {
+    return this.repo.save(plugin);
+  }
 }

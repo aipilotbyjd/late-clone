@@ -6,9 +6,9 @@ import { ExecutionService } from './execution.service';
 import { ExecutionController } from './execution.controller';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([ExecutionEntity, ExecutionLogEntity])],
-    providers: [ExecutionService],
-    controllers: [ExecutionController],
-    exports: [ExecutionService],
+  imports: [TypeOrmModule.forFeature([ExecutionEntity, ExecutionLogEntity])],
+  providers: [ExecutionService],
+  controllers: [ExecutionController],
+  exports: [ExecutionService],
 })
-export class ExecutionsModule { }
+export class ExecutionsModule {}

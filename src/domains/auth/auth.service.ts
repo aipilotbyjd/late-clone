@@ -11,9 +11,12 @@ export class AuthService {
     @InjectRepository(UserEntity)
     private readonly usersRepo: Repository<UserEntity>,
     private readonly jwtService: JwtService,
-  ) { }
+  ) {}
 
-  async validateUser(email: string, password: string): Promise<UserEntity | null> {
+  async validateUser(
+    email: string,
+    password: string,
+  ): Promise<UserEntity | null> {
     const user = await this.usersRepo.findOne({ where: { email } });
     if (!user) return null;
     const isMatch = await bcrypt.compare(password, user.password);

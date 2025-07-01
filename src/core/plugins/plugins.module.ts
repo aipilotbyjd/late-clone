@@ -6,9 +6,9 @@ import { MarketplaceService } from './marketplace/marketplace.service';
 import { MarketplaceController } from './marketplace/marketplace.controller';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([MarketplaceEntity])],
-    providers: [PluginService, MarketplaceService],
-    controllers: [MarketplaceController],
-    exports: [PluginService],
+  imports: [TypeOrmModule.forFeature([MarketplaceEntity])],
+  providers: [PluginService, MarketplaceService],
+  controllers: [MarketplaceController],
+  exports: [PluginService],
 })
-export class PluginsModule { }
+export class PluginsModule {}

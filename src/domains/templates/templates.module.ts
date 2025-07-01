@@ -5,9 +5,9 @@ import { TemplateService } from './template.service';
 import { TemplateController } from './template.controller';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([TemplateEntity])],
-    providers: [TemplateService],
-    controllers: [TemplateController],
-    exports: [TemplateService],
+  imports: [TypeOrmModule.forFeature([TemplateEntity])],
+  providers: [TemplateService],
+  controllers: [TemplateController],
+  exports: [TemplateService],
 })
-export class TemplatesModule { }
+export class TemplatesModule {}

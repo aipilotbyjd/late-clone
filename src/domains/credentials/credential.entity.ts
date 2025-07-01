@@ -1,22 +1,28 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('credentials')
 export class CredentialEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column()
-    provider: string; // 'google', 'slack', 'github'
+  @Column()
+  provider: string; // 'google', 'slack', 'github'
 
-    @Column()
-    userId: string;
+  @Column()
+  userId: string;
 
-    @Column('jsonb')
-    data: any; // token, profile, etc.
+  @Column('jsonb')
+  data: any; // token, profile, etc.
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

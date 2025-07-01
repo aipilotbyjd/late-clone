@@ -4,7 +4,7 @@ import { NodeExecutor } from './node.executor';
 import { QueueProcessor } from './queue.processor';
 
 @Module({
-    providers: [RunnerService, NodeExecutor, QueueProcessor],
-    exports: [RunnerService],
+  providers: [RunnerService, NodeExecutor, QueueProcessor],
+  exports: [RunnerService],
 })
-export class EngineModule { }
+export class EngineModule {}

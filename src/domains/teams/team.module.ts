@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TeamEntity } from './team.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([TeamEntity])],
-    exports: [TypeOrmModule],
+  imports: [TypeOrmModule.forFeature([TeamEntity])],
+  exports: [TypeOrmModule],
 })
-export class TeamModule { }
+export class TeamModule {}
