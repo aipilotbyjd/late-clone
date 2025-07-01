@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { NotificationHook } from './notification-hook.entity';
 import { EmailService } from './email.service';
-import { WebhookService } from './webhook.service';
+import { WebhookService } from '../../core/webhooks/webhook.service';
 
 @Injectable()
 export class HookService {
@@ -29,7 +29,7 @@ export class HookService {
             text: JSON.stringify(payload, null, 2),
           });
         } else if (hook.type === 'webhook') {
-          await this.webhookService.post(hook.config.url, { event, payload });
+          await this.webhookService.handleIncoming(hook.config.url, { event, payload });
         }
       } catch (err) {
         this.logger.error(`Failed to trigger hook ${hook.id}`, err.stack);
