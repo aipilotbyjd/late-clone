@@ -83,4 +83,4 @@ import { StorageModule } from './storage/storage.module';
     },
   ],
 })
-export class AppModule {}
+export class AppModule { }

@@ -14,7 +14,7 @@ export class HookService {
     private readonly hookRepo: Repository<NotificationHook>,
     private readonly emailService: EmailService,
     private readonly webhookService: WebhookService,
-  ) {}
+  ) { }
 
   async trigger(workflowId: string, event: string, payload: any) {
     const hooks = await this.hookRepo.find({
